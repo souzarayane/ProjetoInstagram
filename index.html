@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projeto Instagram</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <div class="center">
+            <div class="logo-header">
+                <a href="https://instagram.com"><img src="/assets/logo.png" alt="Logo"></a>
+            </div>
+            <div class="search">
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" name="busca" placeholder="pesquisar" />
+                </div>
+            </div>
+            <div class="notifications-icons">
+                <a href="#"><i class="far fa-compass"></i></a>
+                <a href="#"><i class="far fa-heart"></i></a>
+                <div style="background-image: url(/assets/preguica-perfil.jpg);" class="img-miniature"></div>
+            </div>
+        </div>
+    </header>
+    <br><br>
+    <section class="perfil-descricao">
+        <div class="center">
+            <div class="img-perfil-wrapper">
+                <div style="background-image: url(/assets/preguica-perfil.jpg);" class="img-perfil"></div>
+            </div>
+
+            <div class="texto-perfil">
+                <div class="nome-perfil">
+                    <span>BichoPreguiça</span>
+                    <a class="btn-primario" href="#">Editar perfil</a>
+                    <a class="icon" href="#"><i class="fas fa-cog"></i></a>
+                </div>
+                <br>
+                <div class="info-perfil">
+                    <p><b>300</b> Publicações</p>
+                    <p><b>500</b> Seguidores</p>
+                    <p><b>100</b> Seguindo</p>
+                </div>
+                <br>
+                <div class="descricao-perfil">
+                    <h3>Bicho Preguiça</h3>
+                    <p>Olá, eu sou um bichinho bem preguiçoso.</p>
+                </div>
+            </div>
+
+            <div class="clear"></div>
+        </div>
+    </section>
+
+    <section class="feed">
+        <div class="center">
+            <div class="line-feed">
+                <div aba="publicacoes" class="single-line-name">
+                    <div style="display: block;" class="line-marcacao"></div>
+                    <p style="font-weight:bold;">Publicações</p>
+                </div>
+                <div aba="igtv" class="single-line-name">
+                    <div style="width: 40px;" class="line-marcacao"></div>
+                    <p>IGTV</p>
+                </div>
+                <div aba="marcacoes" class="single-line-name">
+                    <div class="line-marcacao"></div>
+                    <p>Salvos</p>
+                </div>
+                <div aba="marcacoes" class="single-line-name">
+                    <div class="line-marcacao"></div>
+                    <p>Marcações</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="publicacoes">
+        <div class="center">
+            <div style="background-image: url(/assets/preguica01.jpg);" class="publicacao-single"></div>
+            <div style="background-image: url(/assets/preguica02.jpg);" class="publicacao-single"></div>
+            <div style="background-image: url(/assets/preguica03.jpg);" class="publicacao-single"></div>
+            <div class="clear"></div>
+            <div style="background-image: url(/assets/preguica04.jpg);" class="publicacao-single"></div>
+            <div style="background-image: url(/assets/preguica05.jpg);" class="publicacao-single"></div>
+            <div style="background-image: url(/assets/preguica06.jpg);" class="publicacao-single"></div>
+            <div class="clear"></div>
+        </div>
+    </section>
+
+    <section id="igtv">
+        <div class="center">
+            <div style="background-image: url(/assets/preguica07.jpg);" class="publicacao-single"></div>
+            <div style="background-image: url(/assets/preguica08.jpg);" class="publicacao-single"></div>
+            <div style="background-image: url(/assets/preguica09.jpg);" class="publicacao-single"></div>
+            <div class="clear"></div>
+            <div style="background-image: url(/assets/preguica10.jpg);" class="publicacao-single"></div>
+            <div style="background-image: url(/assets/preguica11.jpg);" class="publicacao-single"></div>
+            <div style="background-image: url(/assets/preguica12.jpg);" class="publicacao-single"></div>
+            <div class="clear"></div>
+        </div>
+    </section>
+
+    <script>
+        var elements = document.getElementsByClassName('single-line-name');
+
+        var alternarAbas = function () {
+            var aba = this.getAttribute('aba');
+
+            var element = document.getElementById(aba);
+
+            //Remover estilo da seleção de abas.
+            var abasSelecao = document.getElementsByClassName('single-line-name');
+
+            for (var i = 0; i < abasSelecao.length; i++) {
+                abasSelecao[i].children[0].style.display = "none";
+                abasSelecao[i].children[1].style.fontWeight = "normal";
+            }
+
+            //Ocultar todas as abas
+            document.getElementById('publicacoes').style.display = "none";
+            document.getElementById('igtv').style.display = "none";
+
+            //Mostrar aba que estava oculta.
+            element.style.display = "block";
+
+            //Adicionar classe para troca de aba
+            this.children[0].style.display = "block";
+            this.children[1].style.fontWeight = "bold";
+        }
+
+        for (var i = 0; i < elements.length; i++) {
+            elements[i].addEventListener('click', alternarAbas, false);
+        }
+    </script>
+    <script src="https://kit.fontawesome.com/2c36e9b7b1.js"></script>
+</body>
+
+</html>
